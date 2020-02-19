@@ -1,0 +1,12 @@
+body{
+    font-family: Verdana, sans-serif;
+    background-color: #e9efef;
+}
+
+.bg-wh{
+    background-color: white;
+}
+
+.input_size{
+    height: 10rem;
+}

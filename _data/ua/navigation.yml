@@ -1,0 +1,5 @@
+navbar:
+  - name: Головна
+    link: /index.html
+  - name: Допомога
+    link: /index.html

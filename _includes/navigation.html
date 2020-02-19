@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="/assets/media/icon.bmp" width="30" height="30" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuElements" aria-controls="menuElements" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menuElements">
+        <div class="navbar-nav">
+            {% for elem in site.data.[page.lang].navigation.navbar %}
+            <a class="mt-1 nav-item nav-link {% if page.url == elem.link %} active {% endif %}" href="{{elem.link}}">{{elem.name}}</a>
+            {% endfor %}
+
+            {% assign common = site.pages | where:"lang-ref", page.lang-ref | sort: 'path' %}
+            {% for item in common %}
+            <a class="btn btn-dark my-1 " href="{{item.url}}">{{site.data.languages.[item.lang].label}}</a>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</nav>

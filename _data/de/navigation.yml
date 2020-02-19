@@ -1,0 +1,5 @@
+navbar:
+  - name: Home
+    link: /de/index.html
+  - name: Help
+    link: /de/index.html
