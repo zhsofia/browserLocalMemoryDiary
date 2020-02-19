@@ -3,10 +3,12 @@
 <head>
     {% include head.html %}
 </head>
-<body>
+<body onload="showAllEntries()">
 {% include navigation.html %}
 <div class="container container-fluid">
     {{content}}
 </div>
+
+{% include footer.html %}
 </body>
 </html>

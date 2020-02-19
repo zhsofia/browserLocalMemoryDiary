@@ -3,17 +3,15 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Diary</title>
 <link rel="icon" href="/assets/media/icon.bmp">
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/css/style.css">
-<script src="/assets/js/jquery-3.2.1.slim.min.js"></script>
-<script src="/assets/js/popper.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/local.js"></script>
+
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body onload="showAllEntries()">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark  sticky-top">
     <a class="navbar-brand" href="#"><img src="/assets/media/icon.bmp" width="30" height="30" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuElements" aria-controls="menuElements" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -65,11 +63,17 @@
         <div class="row mt-3 pl-3">
             <p class="h1">Всі записи</p>
         </div>
-        <div class="row" id="entries">
+        <div class="row" id="entryList">
 
         </div>
     </div>
 </div>
 </div>
+
+<script src="http://chancejs.com/chance.min.js"></script>
+<script src="/assets/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/local.js"></script>
 </body>
 </html>
