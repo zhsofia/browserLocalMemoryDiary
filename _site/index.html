@@ -12,7 +12,7 @@
 </head>
 <body onload="showAllEntries()">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark  sticky-top">
-    <a class="navbar-brand" href="#"><img src="/assets/media/icon.bmp" width="30" height="30" alt=""></a>
+    <a class="navbar-brand" href="/index.html"><img src="/assets/media/icon.bmp" width="30" height="30" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuElements" aria-controls="menuElements" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,8 +37,8 @@
 </nav>
 <div class="container container-fluid">
     <div class="justify-content-center row mt-0">
-    <div class="col-lg-8 col-sm-10 col-xs-12">
-        <div class="row mt-3 pl-3"><p class="h1">Новий запис</p></div>
+    <div class="col-lg-8 col-sm-10 col-xs-12 ">
+        <div class="row mt-3 pl-3"><p id="newEntry" class="h1">Новий запис</p></div>
         <form id="diaryInputForm">
             <div class="form-group form-row">
                 <div class="col-lg-5 col-sm-12">
@@ -63,8 +63,10 @@
         <div class="row mt-3 pl-3">
             <p class="h1">Всі записи</p>
         </div>
-        <div class="row" id="entryList">
+        <div class="row" >
+            <div class="col-12" id="entryList">
 
+            </div>
         </div>
     </div>
 </div>

@@ -10,15 +10,16 @@ function saveEntry(e){
         entryID: id,
         entryTitle: title,
         entryDate: date,
-        entryText: text
+        entryText: text,
+        entryCoolness: false
     }
 
     if(localStorage.getItem('entries')==null){
-        let entries = [];
+        const entries = [];
         entries.unshift(entry);
         localStorage.setItem('entries',JSON.stringify(entries));
     }else{
-        let entries = JSON.parse(localStorage.getItem('entries'));
+        const entries = JSON.parse(localStorage.getItem('entries'));
         entries.unshift(entry);
         localStorage.setItem('entries',JSON.stringify(entries));
     }
@@ -28,6 +29,20 @@ function saveEntry(e){
     showAllEntries();
 
     e.preventDefault();
+}
+
+function coolFunc(index){
+    const entries = JSON.parse(localStorage.getItem('entries'));
+    entries[index].entryCoolness=true;
+    localStorage.setItem('entries',JSON.stringify(entries));
+    showAllEntries();
+}
+
+function deleteFunc(index){
+    const entries = JSON.parse(localStorage.getItem('entries'));
+    entries.splice(index,1);
+    localStorage.setItem('entries',JSON.stringify(entries));
+    showAllEntries();
 }
 
 function showAllEntries(){
@@ -40,12 +55,32 @@ function showAllEntries(){
             let title = entries[i].entryTitle;
             let date = entries[i].entryDate;
             let text = entries[i].entryText;
+            let del='delete';
+            let cool='cool';
+            let coolness='';
+            let check = document.getElementById('newEntry').innerText;
+            if(check==='Neuer Eintrag'){
+                del='Löschen';
+                cool='Cool!';
+            }else if(check==='Новий запис'){
+                del='Видалити';
+                cool='Круто!';
+            }
 
-            entryList.innerHTML += '<div class="col-6 mt-3"><p class="h4">'+ title +'</p></div>'+
-                '<div class="col-6"><p class="text-secondary">'+ date +'</p></div>'+
-                '<div class="col-12"><p>'+ text +'</p></div>';
+            if(entries[i].entryCoolness){
+                coolness='<span class="badge badge-success">Cool!</span>';
+            }
+
+            entryList.innerHTML += '<div class="row my-4">'+
+                '<div class="col-6 "><p class="h4">'+ title+ ' ' +coolness +'</p></div>'+
+                '<div class="col-6 text-right"><p class="text-secondary">'+ date +'</p></div>'+
+                '<div class="col-12"><p>'+ text +'</p></div>' +
+                '<div class="col-lg-1 mr-2 my-1 col-sm-4 col-xs-6"><div><button onclick="coolFunc(\'' + i + '\')" class="btn btn-success btn-sm">'+ cool + '</button></div></div>'+
+                '<div class="col-lg-1 mr-2 my-1 col-sm-4 col-xs-6"><div><button onclick="deleteFunc(\'' + i + '\')" class="btn btn-danger btn-sm">'+ del + '</button></div></div>' +
+                '</div>';
         }
-        console.log("finisched");
     }
 
+
 }
+
