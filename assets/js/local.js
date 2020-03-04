@@ -51,10 +51,7 @@ function showAllEntries(){
         let entryList = document.getElementById('entryList');
         entryList.innerHTML = '';
         for(let i=0; i<entries.length;i++){
-            let id = entries[i].entryID;
-            let title = entries[i].entryTitle;
-            let date = entries[i].entryDate;
-            let text = entries[i].entryText;
+            let {entryID:id, entryTitle:title, entryDate:date, entryText:text}=entries[i];
             let del='delete';
             let cool='cool';
             let coolness='';
